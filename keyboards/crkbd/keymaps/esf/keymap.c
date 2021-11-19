@@ -42,12 +42,14 @@ enum custom_keycodes {
   ADJUST,
   BACKLIT,
   RGBRST,
-  MACRO1
+  MACRO1,
+  MACRO2
+
 };
 
-enum macro_keycodes {
-  KC_SAMPLEMACRO,
-};
+//enum macro_keycodes {
+//  KC_SAMPLEMACRO,
+//};
 
 // Left-hand home row mods
 #define HOME_A LCTL_T(KC_A)
@@ -62,7 +64,7 @@ enum macro_keycodes {
 #define HOME_SCLN RCTL_T(KC_SCLN)
 
 // 
-#define THU_SPC MT(MOD_RSFT, KC_SPC)
+//#define THU_SPC MT(MOD_RSFT, KC_SPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_split_3x6_3( \
@@ -73,18 +75,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
 
-                                         XXXXXXX,   LOWER,  KC_ENT,     THU_SPC,  RAISE, XXXXXXX \
+                                         XXXXXXX,   LOWER,  KC_ENT,     KC_SPC,  RAISE, XXXXXXX \
                                       //`--------------------------'  `--------------------------'
 
   ),
+
 
   [_LOWER] = LAYOUT_split_3x6_3( \
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
      XXXXXXX,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0,   XXXXXXX,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, KC_LCTL, KC_LALT, KC_LGUI,  KC_LSFT, KC_VOLU,                     KC_TAB, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT , XXXXXXX,
+     XXXXXXX, KC_LCTL, KC_LALT, KC_LGUI,  KC_LSFT, KC_TAB,                     KC_QUOT, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT , XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, MACRO1 , KC_VOLD ,                    XXXXXXX,  KC_DEL, XXXXXXX, KC_DOT,  XXXXXXX,  XXXXXXX,
+     XXXXXXX, XXXXXXX, XXXXXXX,  MACRO2, MACRO1 , KC_CAPS,                    KC_GRV,  KC_TILD, XXXXXXX, KC_DOT,  XXXXXXX,  XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          XXXXXXX,   LOWER,  KC_ENT,     KC_BSPC,  RAISE,  XXXXXXX\
                                       //|--------------------------|  |--------------------------|
@@ -94,9 +97,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
      XXXXXXX,  KC_EXLM, KC_AT,  KC_HASH, KC_DLR, KC_PERC,                        KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, KC_GRV  , KC_QUOT , KC_TAB, KC_ESC, XXXXXXX,                      KC_MINS, KC_EQL, KC_LBRC,  KC_RBRC, KC_PIPE, XXXXXXX,
+     XXXXXXX, XXXXXXX, XXXXXXX , KC_TAB,  KC_ESC,  XXXXXXX,                      KC_MINS, KC_EQL, KC_LBRC,  KC_RBRC, KC_PIPE, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, XXXXXXX, XXXXXXX , XXXXXXX,KC_TILD , XXXXXXX,                      KC_PLUS, KC_UNDS, KC_LCBR, KC_RCBR, KC_BSLS, XXXXXXX,
+     XXXXXXX, XXXXXXX, XXXXXXX , XXXXXXX, XXXXXXX, XXXXXXX,                      KC_PLUS, KC_UNDS, KC_LCBR, KC_RCBR, KC_BSLS, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          XXXXXXX,   LOWER,  KC_DEL,     KC_SPC,  RAISE,  XXXXXXX\
                                       //`--------------------------'  `--------------------------'
@@ -106,9 +109,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
         RESET,  RGBRST, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
+      RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      KC_VOLU, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
+      RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      KC_VOLD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          XXXXXXX,   LOWER,  KC_ENT,     KC_SPC,  RAISE,  XXXXXXX\
                                       //`--------------------------'  `--------------------------'
@@ -257,6 +260,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING("Aerodinamica4");
       }
       return false;
+    case MACRO2:
+      if (record->event.pressed){
+        SEND_STRING("JkFnjTM1YTQpMMI0");
+      }
+      return false;
   }
   return true;
 }
@@ -272,3 +280,28 @@ void suspend_wakeup_init_keymap(void) {
 }
 
 #endif
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record){
+  switch (keycode){
+    case LCTL_T(KC_A):
+      return TAPPING_TERM+LONG_TAPPING_TERM*0.5;
+    case LALT_T(KC_S):
+      return TAPPING_TERM+LONG_TAPPING_TERM;
+    case LGUI_T(KC_D):
+      return TAPPING_TERM+LONG_TAPPING_TERM;
+    case LSFT_T(KC_F):
+      return TAPPING_TERM+LONG_TAPPING_TERM*0.5;
+
+    case RCTL_T(KC_SCLN):
+      return TAPPING_TERM+LONG_TAPPING_TERM*0.7;
+    case RALT_T(KC_L):
+      return TAPPING_TERM+LONG_TAPPING_TERM;
+    case RGUI_T(KC_K):
+      return TAPPING_TERM+LONG_TAPPING_TERM;
+    case RSFT_T(KC_J):
+      return TAPPING_TERM+LONG_TAPPING_TERM*0.7;
+    default:
+      return TAPPING_TERM;
+
+  }
+}
