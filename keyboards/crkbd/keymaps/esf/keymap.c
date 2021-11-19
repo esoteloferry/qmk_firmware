@@ -257,7 +257,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case MACRO1:
       if (record->event.pressed){
-        SEND_STRING("Aerodinamica4");
+        SEND_STRING("Aerodinamica5");
       }
       return false;
     case MACRO2:
