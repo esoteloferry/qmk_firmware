@@ -85,9 +85,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
      XXXXXXX,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0,   XXXXXXX,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, KC_LCTL, KC_LALT, KC_LGUI,  KC_LSFT, KC_TAB,                     KC_QUOT, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT , XXXXXXX,
+     XXXXXXX,  XXXXXXX , XXXXXXX, KC_LEFT,   KC_UP,  KC_TAB,                     KC_QUOT, KC_DOWN, KC_RIGHT, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-     XXXXXXX, XXXXXXX, XXXXXXX,  MACRO2, MACRO1 , KC_CAPS,                    KC_GRV,  KC_TILD, XXXXXXX, KC_DOT,  XXXXXXX,  XXXXXXX,
+     XXXXXXX, XXXXXXX, XXXXXXX,  MACRO2, MACRO1 , KC_CAPS,                       KC_GRV,  KC_TILD, KC_DOT, XXXXXXX,  XXXXXXX,  XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                          XXXXXXX,   LOWER,  KC_ENT,     KC_BSPC,  RAISE,  XXXXXXX\
                                       //|--------------------------|  |--------------------------|
@@ -257,12 +257,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case MACRO1:
       if (record->event.pressed){
-        SEND_STRING("Aerodinamica5");
+        SEND_STRING("252945");
       }
       return false;
     case MACRO2:
       if (record->event.pressed){
-        SEND_STRING("JkFnjTM1YTQpMMI0");
+        SEND_STRING("252945");
       }
       return false;
   }
